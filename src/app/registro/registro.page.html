@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="registrar()" [formGroup]="registro">
+    <ion-grid>
+      <ion-row>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <ion-card border-color="secundary">
+            <ion-card-header color="primary" class="ion-text-center">
+              <ion-card-title> Ingrese sus datos </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="ion-margin">
+              <ion-item fill="solid" class="ion-margin-bottom">
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input inputmode="text" formControlName="nombre" [ngModel]="newUsuario.nombre"></ion-input>
+                <ion-note
+                  slot="error"
+                  *ngIf="(nombre.dirty || nombre.touched) && nombre.errors"
+                  >El nombre es un dato requerido</ion-note
+                >
+              </ion-item>
+              <ion-item fill="solid" class="ion-margin-bottom">
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input inputmode="email" type="email" formControlName="email" [ngModel]="newUsuario.correo" ></ion-input>
+                <ion-note
+                  slot="error"
+                  *ngIf="(email.dirty || email.touched) && email.errors"
+                  >Correo invalido</ion-note
+                >
+              </ion-item>
+              <ion-item fill="solid" class="ion-margin-bottom">
+                <ion-label position="floating">No. de Casa</ion-label>
+                <ion-input inputmode="text" formControlName="noCasa" [ngModel]="newUsuario.noCasa"></ion-input>
+                <ion-note
+                  slot="error"
+                  *ngIf="(noCasa.dirty || noCasa.touched) && noCasa.errors"
+                  >El no. casa es un dato requerido</ion-note
+                >
+              </ion-item>
+              <ion-item fill="solid" class="ion-margin-bottom">
+                <ion-label position="floating">Telefono</ion-label>
+                <ion-input inputmode="tel" inputmode="text" formControlName="telefono" [ngModel]="newUsuario.telefono"></ion-input>
+                <ion-note
+                  slot="error"
+                  *ngIf="(telefono.dirty || telefono.touched) && telefono.errors"
+                  >El telefono es un dato requerido</ion-note
+                >
+              </ion-item>
+              <ion-item fill="solid" class="ion-margin-bottom">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+                <ion-note
+                  slot="error"
+                  *ngIf="(password.dirty || password.touched) && password.errors"
+                  >La contraseña necesita 6 caracteres</ion-note
+                >
+              </ion-item>
+              <div class="ion-text-center ion-margin-top">
+                <ion-button
+                  type="submit"
+                  color="primary"
+                  [disabled]="!registro.valid"
+                  >Guardar</ion-button
+                >
+                <ion-button color="secondary" (click)="regresar()">Regresar</ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
