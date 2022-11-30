@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button text ="Regresar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar Reclamo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar slot="start" (click)="addImage()">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>Información del Reclamo</ion-label>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="registro">
+        <ion-item fill="solid" class="ion-margin-bottom">
+          <ion-label position="floating">Nota</ion-label>
+          <ion-input inputmode="text" formControlName="nota" [ngModel]="datosReclamo.nota"></ion-input>
+          <ion-note
+            slot="error"
+            *ngIf="(nota.dirty || nota.touched) && nota.errors"
+            >La nota es un dato requerido</ion-note
+          >
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

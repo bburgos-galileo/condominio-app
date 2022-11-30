@@ -34,6 +34,12 @@ export class DatabaseService {
     await setDoc(userDocRef, {imageUrl: image});
   }
 
+  async actualizar(data: any){
+    const user = sessionStorage.getItem('userEmail');
+    const userDocRef = doc(this.fireBase, `Inquilino/${user}`);
+    await updateDoc(userDocRef, data)
+  }
+
 
   async obtenerUsuario(id: string){
     const docRef = doc(this.fireBase, `Inquilino/${id}`);

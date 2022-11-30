@@ -30,7 +30,6 @@ export class AppComponent {
 
     if (this.currentUser != null) {
       this.db.obtenerUsuario(this.currentUser).then(data => {
-        console.log(data);
         this.avatar = data.imageUrl;
         this.idUser = data.id;
       })

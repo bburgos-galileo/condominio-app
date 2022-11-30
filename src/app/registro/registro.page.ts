@@ -1,4 +1,3 @@
-import { Reclamo } from './../model/reclamo';
 import { Usuario } from './../model/usuario';
 import { DatabaseService } from './../services/database.service';
 import { Component, OnInit } from '@angular/core';
